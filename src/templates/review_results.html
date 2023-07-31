@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pagination Example</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <!-- Table headers -->
+                    <th>User name</th>
+                    <th>Ratings</th>
+                    <th>Title</th>
+                    <th>Review</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table data rows -->
+                {% for index, row in review_table_rows.iterrows() %}
+                <tr>
+                    <td>{{ row['User name'] }}</td>
+                    <td>{{ row['Ratings'] }}</td>
+                    <td>{{ row['Title'] }}</td>
+                    <td>{{ row['Review'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container mt-3">
+        {% if page > 1 %}
+        <button class="btn btn-primary mr-2"><a href="/reviews_result/{{ filename }}/{{ page - 1 }}" style="color: white;">Previous</a></button>
+        {% endif %}
+        {% if review_table_rows.shape[0] > 0 %}
+        <button class="btn btn-primary"><a href="/reviews_result/{{ filename }}/{{ page + 1 }}" style="color: white;">Next</a></button>
+        {% endif %}
+    </div>
+
+</body>
+</html>
