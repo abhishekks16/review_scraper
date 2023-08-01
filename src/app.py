@@ -8,11 +8,7 @@ logging.basicConfig(filename="scrapper.log" , level=logging.INFO)
 
 app = Flask(__name__)
 
-# @app.route("/")
-# def welcome():
-#     return "Welcome to the web scraping project"
 
-#@app.route("/parser")
 @app.route("/")
 def parser():
     return render_template('search.html')
@@ -52,15 +48,19 @@ def reviews_parser():
 
 @app.route('/reviews_result/<string:filename>/<int:page>')
 def reviews_result(filename, page = 1):
-    # Set the chunk size (number of rows per page)
-    chunk_size = 10
-    logging.info(f'File name to review result is :{filename}')
+    try:
+        # Set the chunk size (number of rows per page)
+        chunk_size = 10
+        logging.info(f'File name to review result is :{filename}')
 
-    # Fetch the desired data chunk based on the page and chunk size.
-    data_chunk = parserfile.read_csv_chunk(chunk_size, page, filename)
+        # Fetch the desired data chunk based on the page and chunk size.
+        data_chunk = parserfile.read_csv_chunk(chunk_size, page, filename)
 
-    return render_template('review_results.html', review_table_rows = data_chunk,filename = filename, page = page)
+        return render_template('review_results.html', review_table_rows = data_chunk,filename = filename, page = page)
 
+    except Exception as ex:
+        logging.error(ex)
+        return render_template('error.html')
 
 
 if __name__ == "__main__":
