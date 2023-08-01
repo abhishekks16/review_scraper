@@ -4,7 +4,7 @@
 
 ## Homepage
 * After running `python app.py`, the app can be accessbile at `http://127.0.0.1:8000` in local environment.
-* The homepage form consists of below fields :
+* The homepage form consists of below fields :     
 <img width="443" alt="image" src="https://github.com/abhishekks16/review_scraper/assets/133478875/a2c0ae37-946c-4c6e-bae0-b95add110fba">
 
 ```
@@ -19,11 +19,11 @@
 ## Review results
 * After processing the results, it will redirect to `reviews_result` page .
 * The parsed reviews are stored in CSV file, here in this page it is diplayed in the table.
-* The table is enabled with pagination.
+* The table is enabled with pagination.      
 <img width="647" alt="image" src="https://github.com/abhishekks16/review_scraper/assets/133478875/0fe24b50-e8ca-4c77-bd74-6b29c9787bc4">
 
 
 ## Error page
 * While sraping or saving data to csv if any error occurs. It will redirects to error page.
-* All the logs are logged inside `scarrper.log` file.
+* All the logs are logged inside `scarrper.log` file.      
 <img width="607" alt="image" src="https://github.com/abhishekks16/review_scraper/assets/133478875/28836784-4e2a-44fa-b56f-941618d2d881">
